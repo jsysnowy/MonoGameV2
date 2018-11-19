@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Aurora.Core.Scenes;
 
 namespace Aurora
 {
@@ -12,15 +13,14 @@ namespace Aurora
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-
-        //TODO: Remove;
-        Test.TestScene1.TestScene Scene;
+        //TODO: Add to global static accessor.
+        SceneManager sM;
         
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1920;
-            graphics.PreferredBackBufferHeight = 1080;
+            graphics.PreferredBackBufferWidth = 1086;
+            graphics.PreferredBackBufferHeight = 792;
             graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
@@ -34,6 +34,8 @@ namespace Aurora
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            sM = new SceneManager();
+
             base.Initialize();
         }
 
@@ -52,7 +54,7 @@ namespace Aurora
                 "down_stand"
             });
 
-            
+            sM.AddScene("TestScene", new Test.TestScene1.TestScene(), true);
         }
 
         /// <summary>
@@ -77,12 +79,7 @@ namespace Aurora
             // TODO: Add your update logic here
 
             //TODO: Remove this into proper scene manager:
-            if ( Scene == null) {
-                Scene = new Test.TestScene1.TestScene();
-            }
-
-
-            Scene.Update(gameTime);
+            sM.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -96,8 +93,9 @@ namespace Aurora
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-            Scene.Draw(spriteBatch);
-
+            spriteBatch.Begin();
+            sM.Draw(spriteBatch);
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

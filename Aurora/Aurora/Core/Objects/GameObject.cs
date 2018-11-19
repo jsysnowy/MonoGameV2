@@ -24,6 +24,18 @@ namespace Aurora.Core.Objects {
         /// </summary>
         private List<Module> Modules;
         #endregion
+
+        #region Parent/Children
+        /// <summary>
+        /// Stores parent of this.
+        /// </summary>
+        private GameObject Parent;
+
+        /// <summary>
+        /// Stores children of this.
+        /// </summary>
+        private List<GameObject> Children;
+        #endregion
         #endregion
 
         #region Get and Set
@@ -36,6 +48,37 @@ namespace Aurora.Core.Objects {
         public GameObject() {
             WorldPosition = new Vector3(0, 0, 0);
             Modules = new List<Module>();
+            Children = new List<GameObject>();
+        }
+        #endregion
+
+        #region Children functions.
+        /// <summary>
+        /// Add an object to this manager.
+        /// </summary>
+        /// <param name="obj"></param>
+        public void Add(GameObject obj) {
+            Children.Add(obj);
+            obj.Parent = this;
+        }
+
+        /// <summary>
+        ///  Remove an object from this manager.
+        /// </summary>
+        /// <param name="obj"></param>
+        public void Remove(GameObject obj) {
+            Children.Remove(obj);
+            obj.Parent = null;
+        }
+
+        /// <summary>
+        ///  Clear all objects from this ObjectManager.
+        /// </summary>
+        public void Clear() {
+            foreach ( GameObject child in Children) {
+                child.Parent = null;
+            }
+            Children.Clear();
         }
         #endregion
 
@@ -102,9 +145,14 @@ namespace Aurora.Core.Objects {
         /// Update all modules in this.
         /// </summary>
         /// <param name="gt"></param>
-        public void Update( GameTime gt) {
+        public void Update( GameTime gT) {
+            // Update each module in this GameObject.
             foreach ( Module M in Modules) {
-                M.Update(gt);
+                M.Update(gT);
+            }
+            // Update all its children.
+            foreach ( GameObject C in Children) {
+                C.Update(gT);
             }
         }
 
@@ -113,8 +161,14 @@ namespace Aurora.Core.Objects {
         /// </summary>
         /// <param name="sB"></param>
         public void Draw( SpriteBatch sB ) {
+            // Draw all modules in this GameObject.
             foreach ( Module M in Modules) {
                 M.Draw(sB);
+            }
+
+            // Draw all this modules children.
+            foreach (GameObject C in Children) {
+                C.Draw(sB);
             }
         }
     }

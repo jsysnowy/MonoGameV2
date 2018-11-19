@@ -47,6 +47,8 @@
     <Compile Include="Core\Modules\TextureModule.cs" />
     <Compile Include="Core\Modules\WASDController.cs" />
     <Compile Include="Core\Objects\GameObject.cs" />
+    <Compile Include="Core\Scenes\Scene.cs" />
+    <Compile Include="Core\Scenes\SceneManager.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,7 +114,6 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\Scenes\" />
     <Folder Include="Test\TestScene1\Components\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

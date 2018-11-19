@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Aurora.Core.Scenes;
 using Aurora.Core.Objects;
 using Aurora.Core.Modules;
 
 namespace Aurora.Test.TestScene1 {
-    class TestScene {
+    class TestScene : Scene {
         /// <summary>
         /// Test background image
         /// </summary>
@@ -26,32 +27,17 @@ namespace Aurora.Test.TestScene1 {
         public TestScene() {
             Background = new GameObject();
             Background.AddModule<TextureModule>().TextureID = "bg";
+            Add(Background);
 
             Sprite = new GameObject();
             Sprite.AddModule<TextureModule>().TextureID = "down_stand";
             Sprite.AddModule<WASDController>();
-        }
+            Add(Sprite);
 
-        /// <summary>
-        /// Ths scene updates
-        /// </summary>
-        /// <param name="gT"></param>
-        public void Update( GameTime gT) {
-            Sprite.Update(gT);
-        }
-
-        /// <summary>
-        /// Draws this scene.
-        /// </summary>
-        /// <param name="gT"></param>
-        public void Draw(SpriteBatch sB) {
-            // TODO: Remove:
-            sB.Begin();
-
-            Background.Draw(sB);
-            Sprite.Draw(sB);
-
-            sB.End();
+            GameObject sprite2 = new GameObject();
+            sprite2.AddModule<TextureModule>().TextureID = "down_stand";
+            sprite2.WorldPosition.X = 55;
+            Sprite.Add(sprite2);
         }
     }
 }
