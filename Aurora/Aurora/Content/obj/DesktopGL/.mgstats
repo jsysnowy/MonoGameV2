@@ -1,0 +1,3 @@
+Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/bg.png","C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/bin/DesktopGL/bg.xnb","TextureProcessor","Texture2DContent",265686,3440533,0.6820543
+"C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/down_stand.png","C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/bin/DesktopGL/down_stand.xnb","TextureProcessor","Texture2DContent",379,2057,0.019458

@@ -11,6 +11,10 @@ namespace Aurora
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+
+
+        //TODO: Remove;
+        Test.TestScene1.TestScene Scene;
         
         public Game1()
         {
@@ -40,6 +44,12 @@ namespace Aurora
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            Core.Loader.Load(this.Content, new string[] {
+                "bg",
+                "down_stand"
+            });
+
+            
         }
 
         /// <summary>
@@ -62,6 +72,12 @@ namespace Aurora
                 Exit();
 
             // TODO: Add your update logic here
+            if ( Scene == null) {
+                Scene = new Test.TestScene1.TestScene();
+            }
+
+
+            Scene.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -75,6 +91,7 @@ namespace Aurora
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
+            Scene.Draw(spriteBatch);
 
             base.Draw(gameTime);
         }
