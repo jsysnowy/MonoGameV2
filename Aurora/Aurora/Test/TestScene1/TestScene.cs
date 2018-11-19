@@ -28,7 +28,8 @@ namespace Aurora.Test.TestScene1 {
             Background.AddModule<TextureModule>().TextureID = "bg";
 
             Sprite = new GameObject();
-            Sprite.AddModule<TextureModule>().TextureID = "down_stand"; 
+            Sprite.AddModule<TextureModule>().TextureID = "down_stand";
+            Sprite.AddModule<WASDController>();
         }
 
         /// <summary>
@@ -36,8 +37,7 @@ namespace Aurora.Test.TestScene1 {
         /// </summary>
         /// <param name="gT"></param>
         public void Update( GameTime gT) {
-            Sprite.WorldPosition.X += 1;
-            Sprite.WorldPosition.Y += 0.2f;
+            Sprite.Update(gT);
         }
 
         /// <summary>

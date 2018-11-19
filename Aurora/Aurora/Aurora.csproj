@@ -45,6 +45,7 @@
     <Compile Include="Core\Loader.cs" />
     <Compile Include="Core\Modules\Base\Module.cs" />
     <Compile Include="Core\Modules\TextureModule.cs" />
+    <Compile Include="Core\Modules\WASDController.cs" />
     <Compile Include="Core\Objects\GameObject.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />

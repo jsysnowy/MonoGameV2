@@ -97,6 +97,17 @@ namespace Aurora.Core.Objects {
             return false;
         }
         #endregion
+
+        /// <summary>
+        /// Update all modules in this.
+        /// </summary>
+        /// <param name="gt"></param>
+        public void Update( GameTime gt) {
+            foreach ( Module M in Modules) {
+                M.Update(gt);
+            }
+        }
+
         /// <summary>
         /// TODO: Properly drawing.
         /// </summary>

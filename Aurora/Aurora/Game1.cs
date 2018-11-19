@@ -19,6 +19,9 @@ namespace Aurora
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = 1920;
+            graphics.PreferredBackBufferHeight = 1080;
+            graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
         }
 
@@ -72,6 +75,8 @@ namespace Aurora
                 Exit();
 
             // TODO: Add your update logic here
+
+            //TODO: Remove this into proper scene manager:
             if ( Scene == null) {
                 Scene = new Test.TestScene1.TestScene();
             }
