@@ -20,7 +20,7 @@ namespace Aurora.Core.Scenes {
         /// <summary>
         /// Stores the currently active scene.
         /// </summary>
-        private Scene ActiveScene;
+        public Scene ActiveScene;
         #endregion
 
         #region Constructors

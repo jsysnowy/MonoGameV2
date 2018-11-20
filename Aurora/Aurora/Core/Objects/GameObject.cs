@@ -15,7 +15,7 @@ namespace Aurora.Core.Objects {
         /// <summary>
         /// Stores the world position of this display object.
         /// </summary>
-        public Vector3 WorldPosition;
+        public Vector2 WorldPosition;
         #endregion
 
         #region Modules
@@ -46,7 +46,7 @@ namespace Aurora.Core.Objects {
         /// Creates a new display object.
         /// </summary>
         public GameObject() {
-            WorldPosition = new Vector3(0, 0, 0);
+            WorldPosition = new Vector2(0, 0);
             Modules = new List<Module>();
             Children = new List<GameObject>();
         }
@@ -145,7 +145,7 @@ namespace Aurora.Core.Objects {
         /// Update all modules in this.
         /// </summary>
         /// <param name="gt"></param>
-        public void Update( GameTime gT) {
+        public virtual void Update( GameTime gT) {
             // Update each module in this GameObject.
             foreach ( Module M in Modules) {
                 M.Update(gT);
@@ -160,7 +160,7 @@ namespace Aurora.Core.Objects {
         /// TODO: Properly drawing.
         /// </summary>
         /// <param name="sB"></param>
-        public void Draw( SpriteBatch sB ) {
+        public virtual void Draw( SpriteBatch sB ) {
             // Draw all modules in this GameObject.
             foreach ( Module M in Modules) {
                 M.Draw(sB);

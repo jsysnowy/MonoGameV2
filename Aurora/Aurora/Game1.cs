@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Aurora.Core;
 using Aurora.Core.Scenes;
+
 
 namespace Aurora
 {
@@ -19,10 +21,11 @@ namespace Aurora
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = 1086;
-            graphics.PreferredBackBufferHeight = 792;
-            graphics.IsFullScreen = true;
+            graphics.PreferredBackBufferWidth = 1400;
+            graphics.PreferredBackBufferHeight = 800;
+            //graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
+
         }
 
         /// <summary>
@@ -35,6 +38,10 @@ namespace Aurora
         {
             // TODO: Add your initialization logic here
             sM = new SceneManager();
+
+            Core.Overseer.Instance.GDM = graphics;
+            Core.Overseer.Instance.SceneManager = sM;
+            Core.Overseer.Instance.GD = GraphicsDevice;
 
             base.Initialize();
         }
@@ -51,9 +58,18 @@ namespace Aurora
             // TODO: use this.Content to load your game content here
             Core.Loader.Load(this.Content, new string[] {
                 "bg",
-                "down_stand"
+                "down_stand",
+                "down_walk1",
+                "down_walk2",
+                "left_walk1",
+                "left_walk2",
+                "right_walk1",
+                "right_walk2",
+                "up_walk1",
+                "up_walk2"
             });
 
+            // Add and activate a test scene.
             sM.AddScene("TestScene", new Test.TestScene1.TestScene(), true);
         }
 
@@ -76,9 +92,7 @@ namespace Aurora
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
-
-            //TODO: Remove this into proper scene manager:
+            // Scenemanager updates the current active scene:
             sM.Update(gameTime);
 
             base.Update(gameTime);
@@ -92,9 +106,10 @@ namespace Aurora
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Overseer.Instance.SceneManager.ActiveScene.ActiveCamera.Transform);
+            // SceneManager draws the current active scene.
             sM.Draw(spriteBatch);
+
             spriteBatch.End();
             base.Draw(gameTime);
         }

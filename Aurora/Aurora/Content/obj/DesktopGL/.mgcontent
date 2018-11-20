@@ -6,8 +6,56 @@
   <SourceFiles>
     <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/bg.png</File>
     <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/down_stand.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/down_walk1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/down_walk2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/laugh1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/laugh2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/laugh3.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/left_stand.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/left_walk1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/left_walk2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/nod1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/nod2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/nod3.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/pose1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/pose2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/pose3.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/right_stand.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/right_walk1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/right_walk2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/shake1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/shake2.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/shake3.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/surprise.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/up_stand.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/up_walk1.png</File>
+    <File>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/up_walk2.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
