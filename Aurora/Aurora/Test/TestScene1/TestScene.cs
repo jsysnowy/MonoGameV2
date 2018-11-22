@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Aurora.Core.Scenes;
 using Aurora.Core.Objects;
 using Aurora.Core.Modules;
+using Aurora.Core.Modules.PlayerControllers;
 using Aurora.Core.Modules.CollisionBoxes;
 using Microsoft.Xna.Framework.Input;
 
@@ -34,6 +35,8 @@ namespace Aurora.Test.TestScene1 {
             Add(Background);
 
             Sprite = new GameObject();
+            Sprite.WorldPosition.X = -1;
+            Sprite.WorldPosition.Y = -14;
             AnimatedTextureModule anim = Sprite.AddModule<AnimatedTextureModule>();
             anim.Prefix = "down_walk";
             anim.numFrames = 2;
@@ -41,7 +44,7 @@ namespace Aurora.Test.TestScene1 {
             anim.FPS = 6;
 
 
-            Sprite.AddModule<WASDController>();
+            Sprite.AddModule<GRIDController>();
             Sprite.AddModule<TextureHitArea>();
             Add(Sprite);
 

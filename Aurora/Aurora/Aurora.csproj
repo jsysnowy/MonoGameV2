@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Core\Camera\Camera.cs" />
     <Compile Include="Core\Modules\AnimatedTextureModule.cs" />
+    <Compile Include="Core\Modules\PlayerControllers\GRIDController.cs" />
     <Compile Include="Core\Overseer.cs" />
     <Compile Include="Core\Loader.cs" />
     <Compile Include="Core\Modules\Base\Module.cs" />

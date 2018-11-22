@@ -59,7 +59,6 @@ namespace Aurora.Core.Modules {
             if (Playing) {
                 _elapsed += gT.ElapsedGameTime.Milliseconds;
 
-                System.Diagnostics.Trace.WriteLine( _elapsed.ToString() + " > " + (1000 * (1/FPS)) + " FPS " + FPS);
                 if (_elapsed > (1000 * (1/FPS))) {
                     curFrame++;
                     _elapsed = 0;
