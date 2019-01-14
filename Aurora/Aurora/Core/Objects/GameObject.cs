@@ -29,12 +29,12 @@ namespace Aurora.Core.Objects {
         /// <summary>
         /// Stores parent of this.
         /// </summary>
-        private GameObject Parent;
+        public GameObject Parent;
 
         /// <summary>
         /// Stores children of this.
         /// </summary>
-        private List<GameObject> Children;
+        public List<GameObject> Children;
         #endregion
         #endregion
 
@@ -151,8 +151,8 @@ namespace Aurora.Core.Objects {
                 M.Update(gT);
             }
             // Update all its children.
-            foreach ( GameObject C in Children) {
-                C.Update(gT);
+            for ( int i = 0; i < Children.Count; i++) { 
+                Children[i].Update(gT);
             }
         }
 

@@ -9,60 +9,30 @@ using MonoGame.Extended;
 
 
 namespace Aurora.Core.Modules.CollisionBoxes {
-    class TextureHitArea : Base.Module {
+    class TextureHitArea : CollisionModule {
         /// <summary>
         /// Create new instance of TextureHitArea.
         /// </summary>
         public TextureHitArea() {
-
+            _bounds = new Rectangle();
+            
         }
 
-        /// <summary>
-        /// Overrides drawing.
-        /// </summary>
-        /// <param name="sB"></param>
-        public override void Draw(SpriteBatch sB) {
-            // If it has a texture:
-            if ( MyObj.GetModule<TextureModule>().Texture != null) {
-                // Draw hitbox:
-                Texture2D tex = MyObj.GetModule<TextureModule>().Texture;
-                // Line across:
-                sB.DrawLine(
-                    MyObj.WorldPosition,
-                    new Vector2(MyObj.WorldPosition.X + tex.Width, MyObj.WorldPosition.Y),
-                    Color.LightGreen,
-                    1
-                );
-                sB.DrawLine(
-                    new Vector2(MyObj.WorldPosition.X + tex.Width, MyObj.WorldPosition.Y),
-                    new Vector2(MyObj.WorldPosition.X + tex.Width, MyObj.WorldPosition.Y + tex.Height),
-                    Color.LightGreen,
-                    1
+        public override void Update(GameTime gT) {
 
-                );
-                sB.DrawLine(
-                    new Vector2(MyObj.WorldPosition.X + tex.Width, MyObj.WorldPosition.Y + tex.Height),
-                    new Vector2(MyObj.WorldPosition.X , MyObj.WorldPosition.Y + tex.Height),
-                    Color.LightGreen,
-                    1
-                );
-                sB.DrawLine(
-                    new Vector2(MyObj.WorldPosition.X, MyObj.WorldPosition.Y + tex.Height),
-                    MyObj.WorldPosition,
-                    Color.LightGreen,
-                    1
-                );
-                sB.DrawLine(
-                    new Vector2(MyObj.WorldPosition.X + tex.Width, MyObj.WorldPosition.Y),
-                    new Vector2(MyObj.WorldPosition.X, MyObj.WorldPosition.Y + tex.Height),
-                    Color.LightGreen,
-                    1
-                );
+            TextureModule texModule = MyObj.GetModule<TextureModule>();
+            if ( texModule == null) {
+                _bounds = new Rectangle();
+                return;
             }
-            // Else hitArea is 0
-            else {
+            
+            if ( texModule.Texture == null) {
+                _bounds = new Rectangle();
+                return;
+            }
 
-            }
+            _bounds = new Rectangle((int)MyObj.WorldPosition.X, (int)MyObj.WorldPosition.Y, texModule.Texture.Width, texModule.Texture.Height);
+                base.Update(gT);
         }
     }
 }

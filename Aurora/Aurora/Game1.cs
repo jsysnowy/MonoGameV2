@@ -3,7 +3,11 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Aurora.Core;
 using Aurora.Core.Scenes;
-
+using MonoGame.Extended.Tiled;
+using MonoGame.Extended.Tiled.Graphics;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
+using Aurora.Core.Collision;
 
 namespace Aurora
 {
@@ -15,8 +19,6 @@ namespace Aurora
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        //TODO: Add to global static accessor.
-        SceneManager sM;
         
         public Game1()
         {
@@ -37,11 +39,11 @@ namespace Aurora
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            sM = new SceneManager();
-
             Core.Overseer.Instance.GDM = graphics;
-            Core.Overseer.Instance.SceneManager = sM;
             Core.Overseer.Instance.GD = GraphicsDevice;
+
+            // Initializes all managers once params are set:
+            Core.Overseer.Instance.Init();
 
             base.Initialize();
         }
@@ -55,8 +57,8 @@ namespace Aurora
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            Core.Loader.Load(this.Content, new string[] {
+            // Loads all textures:
+            Core.Loader.LoadTextures(this.Content, new string[] {
                 "bg",
                 "down_stand",
                 "down_walk1",
@@ -66,11 +68,23 @@ namespace Aurora
                 "right_walk1",
                 "right_walk2",
                 "up_walk1",
-                "up_walk2"
+                "up_walk2",
+                "Raptor",
+                "phoenix",
+                "DKnight",
+                "flame"
             });
 
+            // Loads all maps:
+            Core.Loader.LoadMaps(this.Content, new string[] {
+                "BattleMap"
+            });
+
+            SoundEffect SE = Content.Load<SoundEffect>("musicloop");
+            //SE.Play();
+
             // Add and activate a test scene.
-            sM.AddScene("TestScene", new Test.TestScene1.TestScene(), true);
+            Overseer.Instance.SceneManager.AddScene("TestScene", new Test.TestScene1.TestScene(), true);
         }
 
         /// <summary>
@@ -93,7 +107,9 @@ namespace Aurora
                 Exit();
 
             // Scenemanager updates the current active scene:
-            sM.Update(gameTime);
+            Overseer.Instance.SceneManager.Update(gameTime);
+            Core.Collision.CollisionManager.Instance.Update();
+            Overseer.Instance.Renderers.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -107,8 +123,12 @@ namespace Aurora
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin(SpriteSortMode.Deferred, null, null, null, null, null, Overseer.Instance.SceneManager.ActiveScene.ActiveCamera.Transform);
+            
             // SceneManager draws the current active scene.
-            sM.Draw(spriteBatch);
+            Overseer.Instance.SceneManager.Draw(spriteBatch);
+
+            CollisionManager.Instance.Draw(spriteBatch);
+
 
             spriteBatch.End();
             base.Draw(gameTime);

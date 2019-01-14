@@ -50,14 +50,15 @@ namespace Aurora.Core.Modules.PlayerControllers {
         /// Create new instance of GRIDController
         /// </summary>
         public GRIDController() : base () {
-            GridSize = 16;
+            GridSize = 64;
             Moving = false;
-            Speed = 2f;
+            Speed = 8f;
             directionGrid[0] = 0;
             directionGrid[1] = 0;
             directionGrid[2] = 0;
             directionGrid[3] = 0;
             MoveOrder = new List<int>();
+            
         }
 
         /// <summary>
@@ -172,6 +173,8 @@ namespace Aurora.Core.Modules.PlayerControllers {
                 MyObj.WorldPosition.X += currentMovementDirection.X * movedThisFrame;
                 MyObj.WorldPosition.Y += currentMovementDirection.Y * movedThisFrame;
             }
+
+            //System.Diagnostics.Trace.WriteLine(MyObj.WorldPosition);
 
             // Update base.
             base.Update(gT);

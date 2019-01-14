@@ -10,6 +10,7 @@ using Aurora.Core.Objects;
 using Aurora.Core.Modules;
 using Aurora.Core.Modules.PlayerControllers;
 using Aurora.Core.Modules.CollisionBoxes;
+using Aurora.Core.Modules.TileMaps;
 using Microsoft.Xna.Framework.Input;
 
 namespace Aurora.Test.TestScene1 {
@@ -22,70 +23,52 @@ namespace Aurora.Test.TestScene1 {
         /// <summary>
         /// Test sprite.
         /// </summary>
-        private GameObject Sprite;
+        private GameObject _raptor;
 
         /// <summary>
         /// Creates this scene.
         /// </summary>
         public TestScene() {
-            ActiveCamera.Zoom = 3;
+            ActiveCamera.Zoom = 1f;
 
+            ///Temp BG image, switch with TileSprites.
             Background = new GameObject();
-            Background.AddModule<TextureModule>().TextureID = "bg";
+            Background.AddModule<TileMap>().MapID = "BattleMap";
             Add(Background);
 
-            Sprite = new GameObject();
-            Sprite.WorldPosition.X = -1;
-            Sprite.WorldPosition.Y = -14;
-            AnimatedTextureModule anim = Sprite.AddModule<AnimatedTextureModule>();
-            anim.Prefix = "down_walk";
-            anim.numFrames = 2;
-            anim.Playing = true;
-            anim.FPS = 6;
+
+            // Test sprite for Spritesheets
+            _raptor = new Components.Raptor();
+            Add(_raptor);
 
 
-            Sprite.AddModule<GRIDController>();
-            Sprite.AddModule<TextureHitArea>();
-            Add(Sprite);
 
-            GameObject sprite2 = new GameObject();
-            sprite2.AddModule<TextureModule>().TextureID = "down_stand";
-            sprite2.WorldPosition.X = 55;
-            Sprite.Add(sprite2);
+            Random rnd = new Random();
+
+            for ( int i = 0; i < 500; i++) {
+                GameObject rndp = new GameObject();
+                rndp.WorldPosition.X = (float)rnd.NextDouble() * 2000;
+                rndp.WorldPosition.Y = (float)rnd.NextDouble() * 2000;
+                SpritesheetTexture tex = rndp.AddModule<SpritesheetTexture>();
+                tex.TextureID = "phoenix";
+                tex.StartIndex = 0;
+                tex.EndIndex = 3;
+                tex.Enable();
+                //Phoenix.AddModule<GRIDController>();
+                rndp.AddModule<CustomRectHitArea>().SetBounds(new Rectangle(0, 0, 12, 12));
+                Add(rndp);
+            }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="gT"></param>
         public override void Update(GameTime gT) {
             base.Update(gT);
 
-            ActiveCamera.Position = Sprite.WorldPosition;
-
-            AnimatedTextureModule anim = Sprite.GetModule<AnimatedTextureModule>();
-            bool pressed = false;
-
-            KeyboardState kbs = Keyboard.GetState();
-            if ( kbs.IsKeyDown(Keys.W)) {
-                anim.Prefix = "up_walk";
-                pressed = true;
-            }
-            if (kbs.IsKeyDown(Keys.A)) {
-                anim.Prefix = "left_walk";
-                pressed = true;
-            }
-            if (kbs.IsKeyDown(Keys.S)) {
-                anim.Prefix = "down_walk";
-                pressed = true;
-            }
-            if (kbs.IsKeyDown(Keys.D)) {
-                anim.Prefix = "right_walk";
-                pressed = true;
-            }
-
-            if ( !pressed) {
-                anim.Playing = false;
-                anim.TextureID = "down_stand";
-            } else {
-                anim.Playing = true;
-            }
+            ActiveCamera.Position = _raptor.WorldPosition;
+            
         }
     }
 }

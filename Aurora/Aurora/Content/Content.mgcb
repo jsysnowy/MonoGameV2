@@ -10,8 +10,14 @@
 
 #-------------------------------- References --------------------------------#
 
+/reference:..\..\packages\MonoGame.Extended.Content.Pipeline.1.1.0\tools\MonoGame.Extended.Content.Pipeline.dll
 
 #---------------------------------- Content ---------------------------------#
+
+#begin BattleMap.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:BattleMap.tmx
 
 #begin bg.png
 /importer:TextureImporter
@@ -25,7 +31,7 @@
 /processorParam:TextureFormat=Color
 /build:bg.png
 
-#begin down_stand.png
+#begin DKnight.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -35,7 +41,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:down_stand.png
+/build:DKnight.png
 
 #begin down_stand.png
 /importer:TextureImporter
@@ -72,6 +78,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:down_walk2.png
+
+#begin flame.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:flame.png
+
+#begin Grassland@64x64.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Grassland@64x64.png
 
 #begin laugh1.png
 /importer:TextureImporter
@@ -145,6 +175,17 @@
 /processorParam:TextureFormat=Color
 /build:left_walk2.png
 
+#begin map2.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:map2.tmx
+
+#begin musicloop.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:musicloop.wav
+
 #begin nod1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -181,6 +222,18 @@
 /processorParam:TextureFormat=Color
 /build:nod3.png
 
+#begin phoenix.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:phoenix.png
+
 #begin pose1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -216,6 +269,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:pose3.png
+
+#begin raptor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:raptor.png
 
 #begin right_stand.png
 /importer:TextureImporter
@@ -300,6 +365,23 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:surprise.png
+
+#begin TestMap.tmx
+/importer:TiledMapImporter
+/processor:TiledMapProcessor
+/build:TestMap.tmx
+
+#begin Town@64x64.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Town@64x64.png
 
 #begin up_stand.png
 /importer:TextureImporter

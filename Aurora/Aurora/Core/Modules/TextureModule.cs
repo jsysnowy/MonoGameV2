@@ -14,7 +14,7 @@ namespace Aurora.Core.Modules {
         /// </summary>
         public string TextureID {
             set {
-                Texture = Loader.Cache[value];
+                Texture = Loader.TextureCache[value];
             }
         }
 

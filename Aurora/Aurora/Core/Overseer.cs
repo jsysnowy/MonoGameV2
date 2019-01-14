@@ -15,6 +15,11 @@ namespace Aurora.Core {
         private static Overseer _instance;
 
         /// <summary>
+        /// Instance of random!
+        /// </summary>
+        public Random rnd;
+
+        /// <summary>
         /// Getter for this singleton.
         /// </summary>
         public static Overseer Instance {
@@ -44,6 +49,11 @@ namespace Aurora.Core {
         /// Stores the SceneManager.
         /// </summary>
         public Scenes.SceneManager SceneManager;
+
+        /// <summary>
+        /// Stores the renderers manager.
+        /// </summary>
+        public Managers.Renderers Renderers;
         #endregion
 
         #region Constructor
@@ -52,6 +62,17 @@ namespace Aurora.Core {
         /// </summary>
         private Overseer() {
 
+        }
+        #endregion
+
+        #region Public Fuctions
+        /// <summary>
+        /// Initialises the Overseer.
+        /// </summary>
+        public void Init() {
+            SceneManager = new Scenes.SceneManager();
+            Renderers = new Managers.Renderers(GD);
+            rnd = new Random();
         }
         #endregion
     }

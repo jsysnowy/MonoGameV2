@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/musicloop.wav</SourceFile>
+  <SourceTime>2018-06-25T23:28:20+01:00</SourceTime>
+  <DestFile>C:/Users/Snowy/Documents/GitHub/MonoGameV2/Aurora/Aurora/Content/bin/DesktopGL/Content/musicloop.xnb</DestFile>
+  <DestTime>2018-12-22T16:56:30.8733543+00:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2018-11-17T11:02:52+00:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2018-11-17T11:02:52+00:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

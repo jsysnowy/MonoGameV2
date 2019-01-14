@@ -9,20 +9,22 @@ using Microsoft.Xna.Framework.Input;
 namespace Aurora.Core.Modules {
     class WASDController : Base.Module {
 
+        public float Speed { get; set; } = 3.0f;
+
         public override void Update(GameTime gT) {
             KeyboardState keyState = Keyboard.GetState();
 
             if (keyState.IsKeyDown(Keys.W)) {
-                MyObj.WorldPosition.Y -= 1.5f;
+                MyObj.WorldPosition.Y -= Speed;
             }
             if (keyState.IsKeyDown(Keys.A)) {
-                MyObj.WorldPosition.X -= 1.5f;
+                MyObj.WorldPosition.X -= Speed;
             }
             if (keyState.IsKeyDown(Keys.S)) {
-                MyObj.WorldPosition.Y += 1.5f;
+                MyObj.WorldPosition.Y += Speed;
             }
             if (keyState.IsKeyDown(Keys.D)) {
-                MyObj.WorldPosition.X += 1.5f;
+                MyObj.WorldPosition.X += Speed;
             }
         }
     }
